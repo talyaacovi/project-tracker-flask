@@ -1,6 +1,6 @@
 """A web application for tracking projects, students, and student grades."""
 
-from flask import Flask, request, render_template, redirect, session, url_for
+from flask import Flask, request, render_template, redirect, url_for
 
 import hackbright
 # importing hackbright.py which is accessing our database
@@ -69,6 +69,20 @@ def get_add_form():
         github = ""
 
     return render_template('student-add.html', github=github)
+
+
+@app.route('/projects/<project>')
+def list_project_info(project):
+    """List specific project information."""
+
+    project_title, description, max_grade = hackbright.get_project_by_title(project)
+    grades = hackbright.get_grades_by_title(project)
+
+    return render_template('project.html',
+                           project_title=project_title,
+                           description=description,
+                           max_grade=max_grade,
+                           grades=grades)
 
 if __name__ == "__main__":
     hackbright.connect_to_db(app)

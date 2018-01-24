@@ -72,9 +72,9 @@ def get_project_by_title(title):
 
     row = db_cursor.fetchone()
 
-    print "Title: {title}".format(title=row[0])
-    print "Description: {description}".format(description=row[1])
-    print "Max Grade: {max_grade}".format(max_grade=row[2])
+    # print "Title: {title}".format(title=row[0])
+    # print "Description: {description}".format(description=row[1])
+    # print "Max Grade: {max_grade}".format(max_grade=row[2])
 
     return row
 
