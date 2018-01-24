@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <title>Add student</title>
+</head>
+<body>
+    <p>That github user does not exist in the student database.<br>
+        Please fill out this information to add them.</p>
+    <form action="/student-add" method="POST">
+        First name: <input type="text" name="first_name" required><br>
+        Last name: <input type="text" name="last_name" required><br>
+        Github: <input type="text" name="github"
+                value="{{ github }}" required><br>
+        <input type="submit" value="Add">
+    </form>
+
+</body>
+</html>
